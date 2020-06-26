@@ -1,14 +1,24 @@
+#environment_internal_v5
+#Ethan Montgomery
+
+"""
+#### CHANGE LOG ####
+V.10 - App Jar
+V.20 - Created base of the game
+V.30 - Created end screen
+###################
+"""
+
 # import the library
 from appJar import gui
 
-############# VARIABLES #####################
+### VARIABLES ###
 userName = ""
 questions = []
 quizProgress = 0
 score = 0
 
-######## CLASS DEFINITITIONS ################
-
+### CLASS DEFINITITIONS ###
 class Question:
     def __init__(self, questionText, options, answer):
         self.questionText = questionText
@@ -47,7 +57,7 @@ class Question:
 
 
 
-############# FUNCTIONS #######################
+### FUNCTIONS ###
 
 # handle button events
 def press(button):
@@ -75,28 +85,17 @@ def start():
     app.removeAllWidgets()
     welcomeString = "Welcome "+str(userName)
     app.addLabel("test", welcomeString, 0, 0)
-    app.addMessage("afda", "dad")
     app.setLabelFg("test", "white")
     app.addButton("Start",buttonFunctions)
    
 
 def endScreen():
     app.removeAllWidgets()
-    app.addLabel("finish","The Quiz Is Over, Your Score Is Below")
-    app.setLabelFg("finish", "white")
-    scoreString = str(score) +" / " +str(len(questions))
-    app.addLabel("score",scoreString)
-    app.setLabelFg("score", "white")
-
-
-
-
-
-
-
+    app.addLabel("finish","The quiz is over")
  
 # create a GUI variable called app
-app = gui("Login Window", "800x400")
+app = gui("Environment Quiz", "800x400")
+app.setResizable=False
 app.setBg("black")
 app.setFont(18)
 
@@ -113,18 +112,9 @@ app.addLabelEntry("Name: ", 2,0)
 app.setLabelFg("Name: ", "white")
 app.addButtons(["Submit", "Cancel"], press)
 
-################ QUESTIONS #####################
-
-
-questions.append(Question("Who am I?",["Josh","Ethan","Oliver"],"A"))
-questions.append(Question("Who are you (2)?",["Josh","Ethan","Oliver"],"B"))
-questions.append(Question("Who are you (3)?",["Josh","Ethan","Oliver"],"B"))
-
-
-
-
-
-
+### QUESTIONS ###
+questions.append(Question("Who am I?",["Ethan","Ollie","Jed", "Nik"],"A"))
+questions.append(Question("Who am I (2) ?",["Ethan","Ollie","Jed", "Nik"],"A"))
 
 
 # start the GUI
